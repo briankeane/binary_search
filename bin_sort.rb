@@ -1,35 +1,4 @@
-require 'rubygems'
-require 'pry-debugger'
-require_relative 'bin_sort.rb'
-
-module ArrayUtil
-  def self.bsearch(array, element)
-    # If the array is empty return a result
-    if array.size == 0
-      return false
-    end
-    # Otherwise call your helper _bsearch method
-    result = BinSort::bin_include(array, element)
-    if result == nil then return false end
-    if result[0] == nil
-      return false
-    else
-      return true
-    end
-  end
-
-  def self._bsearch(array, element, start_index, end_index)
-    # If the start and end indeces are the same, search
-    # that element and return
-    #
-    # Otherwise, find the midpoint
-    #   midpoint = start_index + (end_index - start_index) / 2
-    #
-    # If the element is greater than the one at midpoint, call
-    #   _bsearch on the right half of the remaining array
-    # Otherwise, call _bsearch on left half of the remaining array
-  end
-
+module BinSort
   def self.bin_include(array, target, sorted=false)
 
     # if this is the top level, sort and attach indexes
@@ -95,5 +64,4 @@ module ArrayUtil
 
     return results_array
   end
-
 end
